@@ -20,12 +20,17 @@
       messagingSenderId: "1079925380505",
       appId: "1:1079925380505:web:e1a0c96d624f16f110ef08"
     };
+
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
+      
+      // 아이폰 핵심: WebSocket 차단을 피하기 위해 HTTP 롱 폴링을 강제합니다.
+      firebase.database().enableLogging(true);
+      firebase.database.INTERNAL.forcePolling = true; 
     }
   </script>
   <script src="flutter_bootstrap.js" async></script>
 </head>
-<body style="position: fixed; width: 100%; overflow: hidden;">
+<body style="position: fixed; width: 100%; height: 100%; overflow: hidden;">
 </body>
 </html>
