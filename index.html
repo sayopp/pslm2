@@ -3,7 +3,6 @@
 <head>
   <base href="/pslm2/">
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>pptnz setlist</title>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
@@ -20,7 +19,7 @@
     };
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
-      firebase.database.INTERNAL.forcePolling = true; // 아이폰 통신 해결
+      firebase.database.INTERNAL.forcePolling = true;
     }
   </script>
   <script src="flutter_bootstrap.js" async></script>
@@ -28,16 +27,19 @@
     window.addEventListener('load', function(ev) {
       _flutter.loader.loadEntrypoint({
         onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine({
-            renderer: "html", // 빌드 옵션 대신 여기서 강제 지정 (아이폰 회색 화면 해결)
-          }).then(function(appRunner) {
+          engineInitializer.initializeEngine({ renderer: "html" }).then(function(appRunner) {
             appRunner.runApp();
           });
         }
       });
     });
   </script>
+  <style>
+    body { background-color: #fafafa; margin: 0; }
+    /* 아이폰 하단 버튼 가림 방지 */
+    flt-glass-pane { position: fixed !important; }
+  </style>
 </head>
-<body style="position: fixed; width: 100%; height: 100%; overflow: hidden; margin: 0;">
+<body>
 </body>
 </html>
