@@ -4,6 +4,7 @@
   <base href="/pslm2/">
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>pptnz setlist</title>
 
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
@@ -22,6 +23,8 @@
 
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
+      // 아이폰 보안 차단 시 로그로 원인을 파악하기 위해 로깅 활성화
+      firebase.database().enableLogging(true);
     }
   </script>
 
