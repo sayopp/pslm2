@@ -19,7 +19,7 @@
     };
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
-      firebase.database.INTERNAL.forcePolling = true;
+      firebase.database.INTERNAL.forcePolling = true; // 아이폰 데이터 끊김 방지
     }
   </script>
   <script src="flutter_bootstrap.js" async></script>
@@ -34,11 +34,6 @@
       });
     });
   </script>
-  <style>
-    body { background-color: #fafafa; margin: 0; }
-    /* 아이폰 하단 버튼 가림 방지 */
-    flt-glass-pane { position: fixed !important; }
-  </style>
 </head>
 <body>
 </body>
