@@ -20,16 +20,12 @@
       messagingSenderId: "1079925380505",
       appId: "1:1079925380505:web:e1a0c96d624f16f110ef08"
     };
-
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
-      // 아이폰 보안 차단 시 로그로 원인을 파악하기 위해 로깅 활성화
-      firebase.database().enableLogging(true);
     }
   </script>
-
   <script src="flutter_bootstrap.js" async></script>
 </head>
-<body>
+<body style="position: fixed; width: 100%; overflow: hidden;">
 </body>
 </html>
