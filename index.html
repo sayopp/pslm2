@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <base href="/pslm2/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="setlist">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>setlist</title>
+  <link rel="manifest" href="manifest.json">
+
+ <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database-compat.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCs9ia0mElYAHeXaZukxSEhSC4icA8HJb0",
+    authDomain: "pptnz-setlist.firebaseapp.com",
+    databaseURL: "https://pptnz-setlist-default-rtdb.firebaseio.com",
+    projectId: "pptnz-setlist",
+    storageBucket: "pptnz-setlist.firebasestorage.app",
+    messagingSenderId: "1067913355314",
+    appId: "1:1067913355314:web:023274ef8fc97776b4dc2b"
+  };
+  // Flutter 엔진보다 먼저 Firebase를 전역(window)에 등록합니다.
+  if (!window.firebase) {
+    firebase.initializeApp(firebaseConfig);
+  }
+</script>
+
+</head>
+
+<body>
+  <script>
+    // Firebase가 로드될 때까지 기다렸다가 Flutter를 시작합니다.
+    window.addEventListener('load', function(ev) {
+      // Firebase가 전역에 선언되었는지 확인
+      if (typeof firebase !== 'undefined') {
+        _flutter.loader.load({
+          onEntrypointLoaded: function(engineInitializer) {
+            engineInitializer.initializeEngine().then(function(appRunner) {
+              appRunner.runApp();
+            });
+          }
+        });
+      } else {
+        // Firebase 로드가 늦어지면 잠시 후 재시도
+        console.log("Waiting for Firebase...");
+        setTimeout(() => window.location.reload(), 1000);
+      }
+    });
+  </script>
+</body>
+</html>
+
